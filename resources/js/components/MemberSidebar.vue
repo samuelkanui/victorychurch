@@ -24,7 +24,6 @@ import {
     Folder,
     FileText
 } from 'lucide-vue-next';
-import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {

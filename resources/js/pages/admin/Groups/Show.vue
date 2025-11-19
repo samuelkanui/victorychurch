@@ -13,8 +13,7 @@ import {
     Edit,
     UserCheck,
     Clock,
-    UserX,
-    Shield
+    UserX
 } from 'lucide-vue-next'
 
 interface Props {

@@ -19,14 +19,12 @@ import {
     BookOpen, 
     MessageSquare, 
     Calendar,
-    ClipboardList,
     BarChart3,
     Shield,
     Github,
     Folder,
     FileText
 } from 'lucide-vue-next';
-import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {

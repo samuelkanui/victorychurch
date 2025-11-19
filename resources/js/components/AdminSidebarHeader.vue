@@ -4,7 +4,7 @@ import { SidebarTrigger } from '@/components/ui/sidebar';
 import { Separator } from '@/components/ui/separator';
 import { Badge } from '@/components/ui/badge';
 import type { BreadcrumbItemType } from '@/types';
-import { Shield, Crown } from 'lucide-vue-next';
+import { Crown } from 'lucide-vue-next';
 
 interface Props {
     breadcrumbs?: BreadcrumbItemType[];

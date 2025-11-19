@@ -89,9 +89,6 @@ const getStatusBadgeVariant = (isActive: boolean) => {
     return isActive ? 'default' : 'secondary';
 };
 
-const getStatusColor = (isActive: boolean) => {
-    return isActive ? 'text-green-600' : 'text-gray-600';
-};
 
 const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {

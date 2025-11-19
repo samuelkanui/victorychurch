@@ -51,7 +51,7 @@ interface Props {
     currentStatus: string;
 }
 
-const props = defineProps<Props>();
+defineProps<Props>();
 
 const showApproveDialog = ref(false);
 const showRejectDialog = ref(false);
@@ -303,8 +303,9 @@ const formatDate = (date: string) => {
                     :disabled="!link.url"
                     @click="link.url && router.visit(link.url)"
                     size="sm"
-                    v-html="link.label"
-                />
+                >
+                    <span v-html="link.label"></span>
+                </Button>
             </div>
         </div>
 

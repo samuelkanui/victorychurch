@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, watch, onMounted } from 'vue'
+import { ref, watch } from 'vue'
 import { usePage } from '@inertiajs/vue3'
 import { CheckCircle, XCircle, AlertCircle, X } from 'lucide-vue-next'
 

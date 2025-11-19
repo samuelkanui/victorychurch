@@ -2,16 +2,13 @@
 import { Head, Link } from '@inertiajs/vue3';
 import { ref, onMounted } from 'vue';
 import { 
-    Church, 
     Users, 
     BookOpen, 
-    MessageSquare, 
     Calendar, 
     Heart,
     Shield,
     Crown,
     ArrowRight,
-    CheckCircle,
     Sparkles,
     Target,
     TrendingUp,
@@ -319,7 +316,7 @@ const testimonials = [
                 <div class="mx-auto max-w-7xl">
                     <div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
                         <div 
-                            v-for="(feature, index) in features" 
+                            v-for="feature in features" 
                             :key="feature.title"
                             class="group relative overflow-hidden rounded-3xl bg-white dark:bg-gray-800 p-8 shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 border border-gray-100 dark:border-gray-700"
                         >

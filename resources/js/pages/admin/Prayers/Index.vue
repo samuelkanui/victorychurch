@@ -198,8 +198,9 @@ const breadcrumbs = [
                                     link.active ? 'bg-primary text-primary-foreground' : 'hover:bg-muted',
                                     !link.url && 'opacity-50 cursor-not-allowed'
                                 ]"
-                                v-html="link.label"
-                            />
+                            >
+                                <span v-html="link.label"></span>
+                            </Link>
                         </div>
                     </div>
                     <div v-else class="text-center py-8 text-muted-foreground">

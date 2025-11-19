@@ -16,7 +16,6 @@ import { Link } from '@inertiajs/vue3';
 import { 
     LayoutDashboard, 
     Users, 
-    UserCog, 
     BookOpen, 
     MessageSquare, 
     Calendar,
@@ -29,7 +28,6 @@ import {
     Github,
     UserX
 } from 'lucide-vue-next';
-import AppLogo from './AppLogo.vue';
 
 const mainNavItems: NavItem[] = [
     {

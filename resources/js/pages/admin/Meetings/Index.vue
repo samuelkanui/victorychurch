@@ -38,7 +38,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
@@ -199,8 +199,9 @@ const breadcrumbs = [
                                     link.active ? 'bg-primary text-primary-foreground' : 'hover:bg-muted',
                                     !link.url && 'opacity-50 cursor-not-allowed'
                                 ]"
-                                v-html="link.label"
-                            />
+                            >
+                                <span v-html="link.label"></span>
+                            </Link>
                         </div>
                     </div>
                     

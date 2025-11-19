@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
-import { FileText, Download, Eye, Users, Search, Globe, Lock, File, Video, Link as LinkIcon, FileAudio, Image as ImageIcon, X } from 'lucide-vue-next'
+import { FileText, Download, Eye, Users, Globe, Lock, File, Video, Link as LinkIcon, FileAudio, Image as ImageIcon } from 'lucide-vue-next'
 import { ref } from 'vue'
 
 interface Resource {
@@ -326,8 +326,9 @@ const breadcrumbs = [
                                     link.active ? 'bg-primary text-primary-foreground' : 'hover:bg-muted',
                                     !link.url && 'opacity-50 cursor-not-allowed'
                                 ]"
-                                v-html="link.label"
-                            />
+                            >
+                                <span v-html="link.label"></span>
+                            </Link>
                         </div>
                     </div>
                     

@@ -7,13 +7,10 @@ import { Button } from '@/components/ui/button'
 import { 
     Users, 
     UserCheck, 
-    Clock, 
     Calendar, 
     BookOpen,
     MessageSquare,
-    Edit,
-    Settings,
-    Eye
+    Settings
 } from 'lucide-vue-next'
 
 interface Props {

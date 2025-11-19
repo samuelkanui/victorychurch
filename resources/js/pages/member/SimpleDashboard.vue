@@ -9,11 +9,9 @@ import {
     BookOpen,
     Calendar,
     Clock,
-    CheckCircle,
     AlertCircle,
     Activity,
     TrendingUp,
-    User,
     Eye,
     Plus
 } from 'lucide-vue-next'

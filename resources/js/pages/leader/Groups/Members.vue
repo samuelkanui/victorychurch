@@ -3,7 +3,6 @@ import { Head, Link, router } from '@inertiajs/vue3'
 import LeaderLayout from '@/layouts/LeaderLayout.vue'
 import { type BreadcrumbItemType } from '@/types'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
-import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Tabs from '@/components/ui/Tabs.vue'
 import TabsContent from '@/components/ui/TabsContent.vue'
@@ -108,16 +107,6 @@ const removeMember = (userId: number) => {
     }
 }
 
-const getStatusColor = (status: string) => {
-    switch (status) {
-        case 'pending': return 'bg-yellow-100 text-yellow-800'
-        case 'approved': return 'bg-green-100 text-green-800'
-        case 'rejected': return 'bg-red-100 text-red-800'
-        case 'banned': return 'bg-gray-100 text-gray-800'
-        default: return 'bg-gray-100 text-gray-800'
-    }
-}
-
 const formatDate = (dateString: string) => {
     if (!dateString) return 'Unknown date'
     
@@ -127,7 +116,7 @@ const formatDate = (dateString: string) => {
             month: 'short',
             day: 'numeric'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }

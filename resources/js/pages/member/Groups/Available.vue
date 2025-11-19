@@ -42,7 +42,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs: BreadcrumbItemType[] = [
     { title: 'My Groups', href: '/member/groups' },

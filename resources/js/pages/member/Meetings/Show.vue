@@ -136,7 +136,7 @@ const formatDateTime = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -148,15 +148,6 @@ const formatDuration = (minutes: number) => {
         return `${hours}h ${mins}m`
     }
     return `${mins}m`
-}
-
-const isUpcoming = (scheduledAt: string) => {
-    if (!scheduledAt) return false
-    try {
-        return new Date(scheduledAt) > new Date()
-    } catch (error) {
-        return false
-    }
 }
 
 const submitRsvp = () => {

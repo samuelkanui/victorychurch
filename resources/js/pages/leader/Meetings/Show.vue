@@ -94,7 +94,7 @@ const formatDateTime = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }

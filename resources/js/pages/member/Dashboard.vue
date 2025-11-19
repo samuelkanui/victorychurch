@@ -15,7 +15,6 @@ import {
     AlertCircle,
     Activity,
     TrendingUp,
-    User,
     Eye,
     Plus
 } from 'lucide-vue-next'

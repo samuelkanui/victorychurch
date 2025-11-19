@@ -9,7 +9,6 @@ import {
     Plus, 
     Eye, 
     Edit, 
-    Trash2, 
     Users, 
     Calendar,
     Clock,
@@ -41,7 +40,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs = [
     { title: 'Assignments' }

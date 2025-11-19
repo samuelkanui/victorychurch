@@ -24,7 +24,7 @@ interface Props {
     }>
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs: BreadcrumbItemType[] = [
     { title: 'Prayer Requests', href: '/member/prayers' },

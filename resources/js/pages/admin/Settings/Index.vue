@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/vue3'
 import AdminLayout from '@/layouts/AdminLayout.vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { Settings, Database, Mail, Bell, Shield, Globe, Server, HardDrive, CheckCircle, XCircle, Info } from 'lucide-vue-next'
+import { Database, Mail, Shield, Server, HardDrive, CheckCircle } from 'lucide-vue-next'
 
 interface Props {
     systemInfo: {
@@ -41,7 +41,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs = [
     { title: 'System Settings' }

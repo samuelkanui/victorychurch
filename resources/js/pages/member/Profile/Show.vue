@@ -46,7 +46,7 @@ interface Props {
     }>
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs: BreadcrumbItemType[] = [
     { title: 'Profile' }
@@ -60,22 +60,7 @@ const formatDate = (dateString: string) => {
             month: 'long',
             day: 'numeric'
         })
-    } catch (error) {
-        return 'Invalid date'
-    }
-}
-
-const formatDateTime = (dateString: string) => {
-    if (!dateString) return 'Not provided'
-    try {
-        return new Date(dateString).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: 'numeric',
-            minute: '2-digit'
-        })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }

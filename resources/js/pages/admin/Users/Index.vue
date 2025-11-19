@@ -22,7 +22,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { type BreadcrumbItem } from '@/types';
 import { Head, Link, router } from '@inertiajs/vue3';
-import { 
+import {
     Users, 
     UserPlus, 
     Search, 
@@ -32,8 +32,6 @@ import {
     Shield,
     Crown,
     User,
-    Mail,
-    Calendar,
     Filter
 } from 'lucide-vue-next';
 import { ref, computed } from 'vue';
@@ -95,15 +93,6 @@ const getRoleBadgeVariant = (role: string) => {
         case 'leader': return 'secondary';
         case 'member': return 'outline';
         default: return 'outline';
-    }
-};
-
-const getRoleColor = (role: string) => {
-    switch (role) {
-        case 'admin': return 'text-purple-600';
-        case 'leader': return 'text-blue-600';
-        case 'member': return 'text-green-600';
-        default: return 'text-gray-600';
     }
 };
 

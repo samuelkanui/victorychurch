@@ -130,7 +130,7 @@ const formatDate = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -437,9 +437,10 @@ const truncateText = (text: string, maxLength: number = 100) => {
                                       link.active ? 'bg-green-600 text-white' : 'bg-gray-100 hover:bg-gray-200 text-gray-700',
                                       !link.url ? 'opacity-50 cursor-not-allowed' : 'cursor-pointer'
                                   ]"
-                                  v-html="link.label"
                                   :disabled="!link.url"
-                            />
+                            >
+                                <span v-html="link.label" />
+                            </Link>
                         </nav>
                     </div>
                 </CardContent>

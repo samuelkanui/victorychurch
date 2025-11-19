@@ -9,9 +9,7 @@ import {
     Edit, 
     Users, 
     Calendar,
-    Clock,
-    CheckCircle,
-    AlertCircle
+    Clock
 } from 'lucide-vue-next'
 
 interface Assignment {
@@ -83,7 +81,7 @@ const formatDate = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -92,7 +90,7 @@ const isOverdue = (dueDateString: string) => {
     if (!dueDateString) return false
     try {
         return new Date(dueDateString) < new Date()
-    } catch (error) {
+    } catch {
         return false
     }
 }

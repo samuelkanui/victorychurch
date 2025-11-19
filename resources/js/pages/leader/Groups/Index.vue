@@ -10,9 +10,7 @@ import {
     UserCheck, 
     Clock, 
     Eye,
-    Settings,
     Calendar,
-    MapPin,
     AlertCircle
 } from 'lucide-vue-next'
 

@@ -12,7 +12,6 @@ import {
     Calendar,
     Users,
     User,
-    Clock,
     CheckCircle,
     AlertCircle,
     Target,
@@ -98,7 +97,7 @@ const formatDateTime = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -107,7 +106,7 @@ const isOverdue = (dueDate: string) => {
     if (!dueDate) return false
     try {
         return new Date(dueDate) < new Date()
-    } catch (error) {
+    } catch {
         return false
     }
 }

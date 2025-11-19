@@ -15,7 +15,7 @@ interface Props {
     }>
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs = [
     { title: 'Resources', href: '/leader/resources' },

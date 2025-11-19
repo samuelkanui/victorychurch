@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Head, Link, router } from '@inertiajs/vue3'
+import { Head, router } from '@inertiajs/vue3'
 import MemberLayout from '@/layouts/MemberLayout.vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button'
 import { Input } from '@/components/ui/input'
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/components/ui/dialog'
 import { FileText, Download, Eye, Search, Globe, Lock, File, Video, Link as LinkIcon, FileAudio, Image as ImageIcon, CheckCircle, Clock, PlayCircle } from 'lucide-vue-next'
-import { ref, computed } from 'vue'
+import { ref } from 'vue'
 
 interface Resource {
     id: number

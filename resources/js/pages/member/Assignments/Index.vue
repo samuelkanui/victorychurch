@@ -2,11 +2,10 @@
 import { Head, Link } from '@inertiajs/vue3'
 import MemberLayout from '@/layouts/MemberLayout.vue'
 import { type BreadcrumbItemType } from '@/types'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import Tabs from '@/components/ui/Tabs.vue'
-import TabsContent from '@/components/ui/TabsContent.vue'
 import TabsList from '@/components/ui/TabsList.vue'
 import TabsTrigger from '@/components/ui/TabsTrigger.vue'
 import { 
@@ -18,9 +17,6 @@ import {
     AlertCircle,
     Calendar,
     Users,
-    Target,
-    Award,
-    TrendingUp,
     Filter
 } from 'lucide-vue-next'
 import { ref, computed } from 'vue'
@@ -70,7 +66,7 @@ const formatDate = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -79,7 +75,7 @@ const isOverdue = (dueDate: string) => {
     if (!dueDate) return false
     try {
         return new Date(dueDate) < new Date()
-    } catch (error) {
+    } catch {
         return false
     }
 }

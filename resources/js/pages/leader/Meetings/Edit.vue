@@ -6,7 +6,6 @@ import { Button } from '@/components/ui/button'
 import Input from '@/components/ui/input/Input.vue'
 import Label from '@/components/ui/label/Label.vue'
 import { Calendar, Save, X } from 'lucide-vue-next'
-import { ref } from 'vue'
 
 interface Meeting {
     id: number
@@ -43,7 +42,7 @@ const formatDateForInput = (dateString: string) => {
     try {
         const date = new Date(dateString)
         return date.toISOString().slice(0, 16)
-    } catch (error) {
+    } catch {
         return ''
     }
 }

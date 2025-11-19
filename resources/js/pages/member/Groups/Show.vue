@@ -2,7 +2,7 @@
 import { Head, Link } from '@inertiajs/vue3'
 import MemberLayout from '@/layouts/MemberLayout.vue'
 import { type BreadcrumbItemType } from '@/types'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { Button } from '@/components/ui/button'
 import { 
@@ -12,9 +12,7 @@ import {
     MapPin,
     User,
     Clock,
-    CheckCircle,
     BookOpen,
-    MessageSquare,
     UserPlus
 } from 'lucide-vue-next'
 
@@ -89,7 +87,7 @@ const formatDate = (dateString: string) => {
             month: 'long',
             day: 'numeric'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }

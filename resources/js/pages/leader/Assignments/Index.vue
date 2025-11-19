@@ -9,7 +9,6 @@ import {
     Plus, 
     Eye, 
     Edit, 
-    Trash2, 
     Users, 
     Calendar,
     Clock,
@@ -41,7 +40,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs = [
     { title: 'Assignments' }
@@ -75,7 +74,7 @@ const formatDate = (dateString: string) => {
             month: 'short',
             day: 'numeric'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -84,7 +83,7 @@ const isOverdue = (dueDateString: string) => {
     if (!dueDateString) return false
     try {
         return new Date(dueDateString) < new Date()
-    } catch (error) {
+    } catch {
         return false
     }
 }

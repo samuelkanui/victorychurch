@@ -3,7 +3,7 @@ import { Head } from '@inertiajs/vue3'
 import LeaderLayout from '@/layouts/LeaderLayout.vue'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
-import { BarChart3, Users, MessageSquare, Calendar, TrendingUp, Activity, BookOpen } from 'lucide-vue-next'
+import { BarChart3, Users, MessageSquare, TrendingUp, Activity } from 'lucide-vue-next'
 
 interface Group {
     id: number
@@ -81,7 +81,7 @@ const formatMonth = (monthString: string) => {
         const [year, month] = monthString.split('-')
         const date = new Date(parseInt(year), parseInt(month) - 1)
         return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short' })
-    } catch (error) {
+    } catch {
         return monthString
     }
 }

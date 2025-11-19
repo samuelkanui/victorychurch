@@ -8,7 +8,6 @@ import {
     MessageSquare, 
     User, 
     Clock, 
-    Shield, 
     Globe,
     Users,
     Lock,
@@ -75,7 +74,7 @@ const formatDate = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }

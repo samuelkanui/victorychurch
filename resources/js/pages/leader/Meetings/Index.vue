@@ -14,7 +14,6 @@ import {
     MapPin,
     Video,
     CheckCircle,
-    AlertCircle,
     Play
 } from 'lucide-vue-next'
 
@@ -45,7 +44,7 @@ interface Props {
     }
 }
 
-const props = defineProps<Props>()
+defineProps<Props>()
 
 const breadcrumbs = [
     { title: 'Meetings' }
@@ -93,7 +92,7 @@ const formatDateTime = (dateString: string) => {
             hour: 'numeric',
             minute: '2-digit'
         })
-    } catch (error) {
+    } catch {
         return 'Invalid date'
     }
 }
@@ -111,7 +110,7 @@ const isUpcoming = (scheduledAt: string) => {
     if (!scheduledAt) return false
     try {
         return new Date(scheduledAt) > new Date()
-    } catch (error) {
+    } catch {
         return false
     }
 }

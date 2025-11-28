@@ -72,17 +72,24 @@ class UserController extends Controller
             'role' => 'required|in:admin,leader,member',
         ]);
 
+        // Store plain password for email
+        $plainPassword = $validated['password'];
+
         $user = User::create([
             'name' => $validated['name'],
             'email' => $validated['email'],
-            'password' => bcrypt($validated['password']),
+            'password' => bcrypt($plainPassword),
             'role' => $validated['role'],
-            'email_verified_at' => now(), // Auto-verify admin-created users
-            'is_active' => true,
+            'email_verified_at' => null, // Require OTP verification on first login
+            'is_active' => false, // Will be activated after OTP verification
         ]);
 
+        // Send email with account credentials
+        \Illuminate\Support\Facades\Mail::to($user->email)
+            ->send(new \App\Mail\UserAccountCreated($user, $plainPassword));
+
         return redirect()->route('admin.users.index')
-            ->with('success', 'User created successfully.');
+            ->with('success', 'User created successfully. Login credentials have been sent to their email.');
     }
 
     /**

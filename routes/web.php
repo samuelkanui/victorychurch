@@ -27,3 +27,8 @@ require __DIR__.'/settings.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/leader.php';
 require __DIR__.'/member.php';
+
+// Google Authentication Routes
+Route::get('auth/google', [App\Http\Controllers\Auth\SocialAuthController::class, 'redirectToGoogle'])->name('auth.google');
+Route::get('auth/google/callback', [App\Http\Controllers\Auth\SocialAuthController::class, 'handleGoogleCallback']);
+

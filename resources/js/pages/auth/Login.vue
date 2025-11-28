@@ -42,6 +42,22 @@ const showPassword = ref(false);
             v-slot="{ errors, processing }"
             class="flex flex-col gap-6"
         >
+            <!-- Google Sign In Button -->
+            <a
+                href="/auth/google"
+                class="flex items-center justify-center w-full bg-white text-gray-700 font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:bg-gray-50 mb-2"
+            >
+                <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5 mr-3" alt="Google Logo" />
+                Sign in with Google
+            </a>
+
+            <div class="relative flex items-center justify-center text-sm">
+                <div class="absolute inset-0 flex items-center">
+                    <span class="w-full border-t border-white/20"></span>
+                </div>
+                <span class="relative bg-transparent px-2 text-white/50 uppercase">Or continue with</span>
+            </div>
+
             <div class="grid gap-5">
                 <div class="grid gap-2">
                     <Input

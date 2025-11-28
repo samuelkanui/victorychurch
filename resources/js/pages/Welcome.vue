@@ -164,49 +164,49 @@ const testimonials = [
 
         <!-- Navigation -->
         <nav class="relative z-50 backdrop-blur-md bg-white/70 dark:bg-gray-900/70 border-b border-gray-200/50 dark:border-gray-700/50 sticky top-0">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <div class="flex items-center justify-between h-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex items-center justify-between h-16 sm:h-20">
                     <div class="flex items-center space-x-4 group cursor-pointer">
                         <div class="relative bg-white dark:bg-white rounded-lg p-1.5 shadow-sm">
-                            <img src="/images/liam255.png" alt="Church Logo" class="h-14 w-auto object-contain transform group-hover:scale-110 transition-transform" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
+                            <img src="/images/liam255.png" alt="Church Logo" class="h-10 sm:h-14 w-auto object-contain transform group-hover:scale-110 transition-transform" style="image-rendering: -webkit-optimize-contrast; image-rendering: crisp-edges;" />
                         </div>
                     </div>
                     
-                    <div class="flex items-center space-x-3">
+                    <div class="flex items-center space-x-2 sm:space-x-3">
                         <!-- Dark Mode Toggle -->
                         <button
                             @click="toggleDarkMode"
-                            class="group relative flex h-10 w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110"
+                            class="group relative flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gray-100 dark:bg-gray-800 text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-200 dark:hover:bg-gray-700 hover:scale-110"
                             :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
                         >
-                            <Sun v-if="isDark" class="h-5 w-5 transition-transform group-hover:rotate-180" />
-                            <Moon v-else class="h-5 w-5 transition-transform group-hover:-rotate-12" />
+                            <Sun v-if="isDark" class="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:rotate-180" />
+                            <Moon v-else class="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:-rotate-12" />
                         </button>
                         
                         <Link
                             v-if="$page.props.auth.user"
                             href="/dashboard"
-                            class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
+                            class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
                         >
                             <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <Crown class="relative mr-2 h-4 w-4" />
+                            <Crown class="relative mr-1.5 sm:mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
                             <span class="relative">Dashboard</span>
                         </Link>
                         <template v-else>
                             <Link
                                 href="/login"
-                                class="rounded-xl px-5 py-2.5 text-sm font-medium text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-105"
+                                class="rounded-xl px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 transition-all hover:bg-gray-100 dark:hover:bg-gray-800 hover:scale-105"
                             >
                                 Sign In
                             </Link>
                             <Link
                                 v-if="canRegister"
                                 href="/register"
-                                class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
+                                class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
                             >
                                 <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                                 <span class="relative">Join Us</span>
-                                <ArrowRight class="relative ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                <ArrowRight class="relative ml-1.5 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
                             </Link>
                         </template>
                     </div>
@@ -215,25 +215,25 @@ const testimonials = [
         </nav>
 
         <!-- Hero Section -->
-        <div class="relative z-10 overflow-hidden py-20 lg:py-32">
-            <div class="mx-auto max-w-7xl px-6 lg:px-8">
+        <div class="relative z-10 overflow-hidden py-12 sm:py-20 lg:py-32">
+            <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-4xl text-center">
                     <!-- Animated Badge -->
-                    <div class="mb-8 flex justify-center animate-fade-in">
-                        <div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 px-4 py-2 backdrop-blur-sm">
-                            <Sparkles class="h-4 w-4 text-blue-600 dark:text-blue-400" />
-                            <span class="text-sm font-semibold text-gray-700 dark:text-gray-300">Trusted by 1,200+ Churches Worldwide</span>
+                    <div class="mb-6 sm:mb-8 flex justify-center animate-fade-in">
+                        <div class="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-blue-100 to-purple-100 dark:from-blue-900/30 dark:to-purple-900/30 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm">
+                            <Sparkles class="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-600 dark:text-blue-400" />
+                            <span class="text-xs sm:text-sm font-semibold text-gray-700 dark:text-gray-300">Trusted by 1,200+ Churches Worldwide</span>
                         </div>
                     </div>
                     
                     <!-- Main Heading -->
-                    <h1 class="mb-8 text-5xl font-extrabold tracking-tight text-gray-900 sm:text-6xl lg:text-7xl xl:text-8xl dark:text-white animate-fade-in-up">
+                    <h1 class="mb-6 sm:mb-8 text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-white animate-fade-in-up">
                         Transform Your
                         <span class="relative inline-block">
                             <span class="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient">
                                 Church Community
                             </span>
-                            <svg class="absolute -bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <svg class="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M2 10C50 5 100 2 150 5C200 8 250 5 298 10" stroke="url(#gradient)" stroke-width="3" stroke-linecap="round"/>
                                 <defs>
                                     <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
@@ -246,16 +246,16 @@ const testimonials = [
                         </span>
                     </h1>
                     
-                    <p class="mb-12 text-xl leading-relaxed text-gray-600 sm:text-2xl dark:text-gray-300 animate-fade-in-up" style="animation-delay: 0.2s;">
+                    <p class="mb-8 sm:mb-12 text-lg sm:text-xl leading-relaxed text-gray-600 sm:text-2xl dark:text-gray-300 animate-fade-in-up" style="animation-delay: 0.2s;">
                         The all-in-one platform to <strong class="text-gray-900 dark:text-white">connect, engage, and grow</strong> your congregation with powerful tools designed for modern ministry.
                     </p>
                     
                     <!-- CTA Buttons -->
-                    <div class="flex flex-col items-center justify-center gap-4 sm:flex-row animate-fade-in-up" style="animation-delay: 0.4s;">
+                    <div class="flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row animate-fade-in-up w-full sm:w-auto" style="animation-delay: 0.4s;">
                         <Link
                             v-if="!$page.props.auth.user"
                             href="/register"
-                            class="group relative inline-flex items-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
+                            class="group relative inline-flex items-center justify-center w-full sm:w-auto rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
                         >
                             <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             <span class="relative">Get Started</span>
@@ -264,7 +264,7 @@ const testimonials = [
                         <Link
                             v-else
                             href="/dashboard"
-                            class="group relative inline-flex items-center rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-10 py-5 text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
+                            class="group relative inline-flex items-center justify-center w-full sm:w-auto rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
                         >
                             <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
                             <Crown class="relative mr-2 h-5 w-5" />
@@ -273,7 +273,7 @@ const testimonials = [
                         
                         <Link
                             href="/login"
-                            class="group inline-flex items-center rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-10 py-5 text-lg font-bold text-gray-700 dark:text-gray-300 transition-all hover:border-gray-400 dark:hover:border-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:scale-105 hover:shadow-xl"
+                            class="group inline-flex items-center justify-center w-full sm:w-auto rounded-2xl border-2 border-gray-300 dark:border-gray-600 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-gray-700 dark:text-gray-300 transition-all hover:border-gray-400 dark:hover:border-gray-500 hover:bg-white dark:hover:bg-gray-800 hover:scale-105 hover:shadow-xl"
                         >
                             Learn More
                             <ArrowRight class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />

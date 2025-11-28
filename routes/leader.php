@@ -9,7 +9,7 @@ use App\Http\Controllers\Leader\MeetingController;
 use App\Http\Controllers\Leader\ResourceController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'verified', 'role:leader', 'prevent.back'])->prefix('leader')->name('leader.')->group(function () {
+Route::middleware(['auth', 'verified', 'active', 'role:leader', 'prevent.back'])->prefix('leader')->name('leader.')->group(function () {
     // Dashboard
     Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
     

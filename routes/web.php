@@ -21,12 +21,17 @@ Route::get('dashboard', function () {
         // For members, redirect to member dashboard
         return redirect()->route('member.dashboard');
     }
-})->middleware(['auth', 'verified', 'prevent.back'])->name('dashboard');
+})->middleware(['auth', 'verified', 'active', 'prevent.back'])->name('dashboard');
 
 require __DIR__.'/settings.php';
 require __DIR__.'/admin.php';
 require __DIR__.'/leader.php';
 require __DIR__.'/member.php';
+
+// OTP Verification Routes
+Route::get('verify-otp', [App\Http\Controllers\Auth\OtpVerificationController::class, 'show'])->name('otp.show');
+Route::post('verify-otp', [App\Http\Controllers\Auth\OtpVerificationController::class, 'verify'])->name('otp.verify');
+Route::post('resend-otp', [App\Http\Controllers\Auth\OtpVerificationController::class, 'resend'])->name('otp.resend');
 
 // Google Authentication Routes
 Route::get('auth/google', [App\Http\Controllers\Auth\SocialAuthController::class, 'redirectToGoogle'])->name('auth.google');

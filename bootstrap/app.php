@@ -27,6 +27,7 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->alias([
             'role' => EnsureUserHasRole::class,
             'prevent.back' => PreventBackHistory::class,
+            'active' => \App\Http\Middleware\EnsureUserIsActive::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

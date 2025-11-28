@@ -35,7 +35,8 @@ class CreateNewUser implements CreatesNewUsers
             'email' => $input['email'],
             'password' => $input['password'],
             'role' => 'member', // Default role for new registrations
-            'is_active' => true,
+            'is_active' => false, // Will be activated after OTP verification
+            // email_verified_at will be set after OTP verification
         ]);
     }
 }

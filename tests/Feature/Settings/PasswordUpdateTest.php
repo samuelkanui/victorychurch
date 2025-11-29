@@ -37,7 +37,7 @@ class PasswordUpdateTest extends TestCase
 
         $response
             ->assertSessionHasNoErrors()
-            ->assertRedirect(route('user-password.edit'));
+            ->assertRedirect(route('dashboard')); // Redirects to dashboard after update
 
         $this->assertTrue(Hash::check('new-password', $user->refresh()->password));
     }

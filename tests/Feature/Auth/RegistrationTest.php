@@ -25,7 +25,16 @@ class RegistrationTest extends TestCase
             'password_confirmation' => 'password',
         ]);
 
-        $this->assertAuthenticated();
-        $response->assertRedirect(route('dashboard', absolute: false));
+        // User should NOT be authenticated (OTP verification required)
+        $this->assertGuest();
+        
+        // User should be redirected to OTP verification page
+        $response->assertRedirect(route('otp.show'));
+        
+        // User should exist in database but not be active
+        $this->assertDatabaseHas('users', [
+            'email' => 'test@example.com',
+            'is_active' => false,
+        ]);
     }
 }

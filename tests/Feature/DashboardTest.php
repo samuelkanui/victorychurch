@@ -20,6 +20,7 @@ class DashboardTest extends TestCase
     {
         $user = User::factory()->create([
             'role' => 'member',
+            'is_active' => true, // User must be active to access dashboard
         ]);
 
         $response = $this->actingAs($user)->get(route('dashboard'));

@@ -75,6 +75,7 @@ const codeValue = computed<string>(() => code.value.join(''));
                                 v-model="code"
                                 type="number"
                                 otp
+                                class="text-gray-900 dark:text-white"
                             >
                                 <PinInputGroup>
                                     <PinInputSlot
@@ -83,20 +84,21 @@ const codeValue = computed<string>(() => code.value.join(''));
                                         :index="index"
                                         :disabled="processing"
                                         autofocus
+                                        class="border-gray-300 dark:border-white/30 bg-transparent text-gray-900 dark:text-white focus:border-blue-600 dark:focus:border-white/60"
                                     />
                                 </PinInputGroup>
                             </PinInput>
                         </div>
-                        <InputError :message="errors.code" />
+                        <InputError :message="errors.code" class="text-red-500 dark:text-red-400" />
                     </div>
-                    <Button type="submit" class="w-full" :disabled="processing"
+                    <Button type="submit" class="w-full bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all" :disabled="processing"
                         >Continue</Button
                     >
-                    <div class="text-center text-sm text-muted-foreground">
+                    <div class="text-center text-sm text-gray-600 dark:text-white/70">
                         <span>or you can </span>
                         <button
                             type="button"
-                            class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                            class="text-blue-600 dark:text-white underline decoration-blue-300 dark:decoration-white/30 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current"
                             @click="() => toggleRecoveryMode(clearErrors)"
                         >
                             {{ authConfigContent.toggleText }}
@@ -118,17 +120,18 @@ const codeValue = computed<string>(() => code.value.join(''));
                         placeholder="Enter recovery code"
                         :autofocus="showRecoveryInput"
                         required
+                        class="bg-transparent border-0 border-b-2 border-gray-300 dark:border-white/30 rounded-none px-0 py-3 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:border-blue-600 dark:focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors"
                     />
-                    <InputError :message="errors.recovery_code" />
-                    <Button type="submit" class="w-full" :disabled="processing"
+                    <InputError :message="errors.recovery_code" class="text-red-500 dark:text-red-400" />
+                    <Button type="submit" class="w-full bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all" :disabled="processing"
                         >Continue</Button
                     >
 
-                    <div class="text-center text-sm text-muted-foreground">
+                    <div class="text-center text-sm text-gray-600 dark:text-white/70">
                         <span>or you can </span>
                         <button
                             type="button"
-                            class="text-foreground underline decoration-neutral-300 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current! dark:decoration-neutral-500"
+                            class="text-blue-600 dark:text-white underline decoration-blue-300 dark:decoration-white/30 underline-offset-4 transition-colors duration-300 ease-out hover:decoration-current"
                             @click="() => toggleRecoveryMode(clearErrors)"
                         >
                             {{ authConfigContent.toggleText }}

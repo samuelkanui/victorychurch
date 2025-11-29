@@ -24,8 +24,6 @@ import {
     Shield,
     BarChart3,
     AlertTriangle,
-    Folder,
-    Github,
     UserX
 } from 'lucide-vue-next';
 
@@ -87,18 +85,7 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Github,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
-        icon: Folder,
-    },
-];
+
 </script>
 
 <template>
@@ -132,7 +119,6 @@ const footerNavItems: NavItem[] = [
         </SidebarContent>
 
         <SidebarFooter class="bg-gradient-to-r from-purple-50 to-purple-100 dark:from-purple-950 dark:to-purple-900">
-            <AdminNavFooter :items="footerNavItems" />
             <NavUser />
         </SidebarFooter>
     </Sidebar>

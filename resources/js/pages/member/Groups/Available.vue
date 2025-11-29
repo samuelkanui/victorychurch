@@ -116,7 +116,7 @@ const isGroupFull = (current: number, max: number | null) => {
                                 <input 
                                     type="text" 
                                     placeholder="Search by name or description..."
-                                    class="pl-10 w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500"
+                                    class="pl-10 w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500"
                                     :value="filters?.search || ''"
                                 />
                             </div>
@@ -124,7 +124,7 @@ const isGroupFull = (current: number, max: number | null) => {
                         
                         <div class="space-y-2">
                             <label class="text-sm font-medium">Location</label>
-                            <select class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            <select class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
                                 <option value="">All Locations</option>
                                 <option value="main_building">Main Building</option>
                                 <option value="fellowship_hall">Fellowship Hall</option>
@@ -135,7 +135,7 @@ const isGroupFull = (current: number, max: number | null) => {
                         
                         <div class="space-y-2">
                             <label class="text-sm font-medium">Meeting Day</label>
-                            <select class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500">
+                            <select class="w-full p-2 border rounded-lg focus:ring-2 focus:ring-green-500 focus:border-green-500 bg-white dark:bg-gray-800 text-gray-900 dark:text-white">
                                 <option value="">Any Day</option>
                                 <option value="sunday">Sunday</option>
                                 <option value="monday">Monday</option>

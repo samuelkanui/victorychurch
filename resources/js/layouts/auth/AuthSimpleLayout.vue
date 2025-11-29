@@ -45,7 +45,7 @@ onUnmounted(() => {
                 }"
             >
                 <!-- Overlay to ensure text readability -->
-                <div class="absolute inset-0 bg-gray-900/70"></div>
+                <div class="absolute inset-0 bg-white/30 dark:bg-gray-900/70"></div>
             </div>
         </div>
 
@@ -53,7 +53,7 @@ onUnmounted(() => {
             <!-- Back to Home Link -->
             <Link
                 href="/"
-                class="absolute top-6 left-6 group flex items-center gap-2 text-sm font-medium text-white hover:text-gray-200 transition-colors"
+                class="absolute top-6 left-6 group flex items-center gap-2 text-sm font-medium text-gray-700 dark:text-white hover:text-gray-900 dark:hover:text-gray-200 transition-colors"
             >
                 <svg class="h-4 w-4 group-hover:-translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>
@@ -63,7 +63,7 @@ onUnmounted(() => {
 
             <div class="w-full max-w-md">
                 <!-- Minimalist Auth Card -->
-                <div class="relative overflow-hidden rounded-2xl bg-slate-900/40 backdrop-blur-md shadow-2xl border border-white/10 p-10">
+                <div class="relative overflow-hidden rounded-2xl bg-white/60 dark:bg-slate-900/40 backdrop-blur-md shadow-2xl border border-gray-200/50 dark:border-white/10 p-10">
                     <!-- Content -->
                     <div class="relative">
                         <!-- Logo -->
@@ -74,7 +74,7 @@ onUnmounted(() => {
                         </div>
                         
                         <div class="text-center mb-8">
-                            <h1 class="text-4xl font-bold text-white mb-2">
+                            <h1 class="text-4xl font-bold text-gray-900 dark:text-white mb-2">
                                 {{ title }}
                             </h1>
                         </div>
@@ -84,7 +84,7 @@ onUnmounted(() => {
                 </div>
 
                 <!-- Footer Text -->
-                <p class="mt-6 text-center text-sm text-gray-400">
+                <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
                     © 2025 Victory Fellowship. All rights reserved.
                 </p>
             </div>

@@ -32,15 +32,15 @@ defineProps<{
             class="space-y-6 text-center"
             v-slot="{ processing }"
         >
-            <Button :disabled="processing" variant="secondary">
-                <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin" />
+            <Button :disabled="processing" class="bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all">
+                <LoaderCircle v-if="processing" class="h-4 w-4 animate-spin mr-2" />
                 Resend verification email
             </Button>
 
             <TextLink
                 :href="logout()"
                 as="button"
-                class="mx-auto block text-sm"
+                class="mx-auto block text-sm text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-white/80 transition-colors font-semibold"
             >
                 Log out
             </TextLink>

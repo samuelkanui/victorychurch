@@ -80,7 +80,7 @@ const handleResend = async () => {
             <input type="hidden" name="type" :value="type" />
 
             <div class="grid gap-2">
-                <div class="flex items-center gap-2 text-white/70 text-sm mb-2">
+                <div class="flex items-center gap-2 text-gray-600 dark:text-white/70 text-sm mb-2">
                     <Mail class="h-4 w-4" />
                     <span>{{ email }}</span>
                 </div>
@@ -93,14 +93,14 @@ const handleResend = async () => {
                     autofocus
                     maxlength="6"
                     placeholder="Enter 6-digit code"
-                    class="bg-transparent border-0 border-b-2 border-white/30 rounded-none px-0 py-3 text-white text-center text-2xl tracking-widest placeholder:text-white/50 focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 font-mono"
+                    class="bg-transparent border-0 border-b-2 border-gray-300 dark:border-white/30 rounded-none px-0 py-3 text-gray-900 dark:text-white text-center text-2xl tracking-widest placeholder:text-gray-400 dark:placeholder:text-white/50 focus:border-blue-600 dark:focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 font-mono transition-colors"
                 />
-                <InputError :message="errors.code" class="text-red-400" />
+                <InputError :message="errors.code" class="text-red-500 dark:text-red-400" />
             </div>
 
             <Button
                 type="submit"
-                class="w-full bg-white hover:bg-white/90 text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
+                class="w-full bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
                 :disabled="processing"
             >
                 <LoaderCircle
@@ -115,7 +115,7 @@ const handleResend = async () => {
                     type="button"
                     @click="handleResend"
                     :disabled="resendCooldown > 0 || resending"
-                    class="text-sm text-white/70 hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto"
+                    class="text-sm text-blue-600 dark:text-white/70 hover:text-blue-700 dark:hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 mx-auto font-medium"
                 >
                     <RefreshCw :class="['h-4 w-4', resending && 'animate-spin']" />
                     <span v-if="resendCooldown > 0">

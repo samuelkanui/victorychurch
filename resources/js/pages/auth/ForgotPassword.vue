@@ -32,7 +32,7 @@ defineProps<{
         <div class="space-y-6">
             <Form v-bind="email.form()" v-slot="{ errors, processing }">
                 <div class="grid gap-2">
-                    <Label for="email">Email address</Label>
+                    <Label for="email" class="text-gray-700 dark:text-white/70">Email address</Label>
                     <Input
                         id="email"
                         type="email"
@@ -40,28 +40,29 @@ defineProps<{
                         autocomplete="off"
                         autofocus
                         placeholder="email@example.com"
+                        class="bg-transparent border-0 border-b-2 border-gray-300 dark:border-white/30 rounded-none px-0 py-3 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:border-blue-600 dark:focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors"
                     />
-                    <InputError :message="errors.email" />
+                    <InputError :message="errors.email" class="text-red-500 dark:text-red-400" />
                 </div>
 
                 <div class="my-6 flex items-center justify-start">
                     <Button
-                        class="w-full"
+                        class="w-full bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
                         :disabled="processing"
                         data-test="email-password-reset-link-button"
                     >
                         <LoaderCircle
                             v-if="processing"
-                            class="h-4 w-4 animate-spin"
+                            class="h-4 w-4 animate-spin mr-2"
                         />
                         Email password reset link
                     </Button>
                 </div>
             </Form>
 
-            <div class="space-x-1 text-center text-sm text-muted-foreground">
+            <div class="space-x-1 text-center text-sm text-gray-600 dark:text-white/70">
                 <span>Or, return to</span>
-                <TextLink :href="login()">log in</TextLink>
+                <TextLink :href="login()" class="text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-white/80 transition-colors font-semibold">log in</TextLink>
             </div>
         </div>
     </AuthLayout>

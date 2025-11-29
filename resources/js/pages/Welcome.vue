@@ -57,6 +57,7 @@ const backgroundImages = [
 ];
 
 const currentImageIndex = ref(0);
+const showMobileMenu = ref(false);
 
 const toggleDarkMode = () => {
     isDark.value = !isDark.value;
@@ -182,12 +183,12 @@ const testimonials = [
                 }"
             >
                 <!-- Overlay to ensure text readability -->
-                <div class="absolute inset-0 bg-gray-900/70"></div>
+                <div class="absolute inset-0 bg-white/30 dark:bg-gray-900/70"></div>
             </div>
         </div>
 
         <!-- Navigation -->
-        <nav class="relative z-50 backdrop-blur-sm bg-white/10 border-b border-white/10 sticky top-0">
+        <nav class="relative z-50 backdrop-blur-sm bg-white/70 dark:bg-white/10 border-b border-gray-200/20 dark:border-white/10 sticky top-0">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex items-center justify-between h-16 sm:h-20">
                     <div class="flex items-center space-x-4 group cursor-pointer">
@@ -200,38 +201,89 @@ const testimonials = [
                         <!-- Dark Mode Toggle -->
                         <button
                             @click="toggleDarkMode"
-                            class="group relative flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-white/10 text-white transition-all hover:bg-white/20 hover:scale-110"
+                            class="group relative flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-gray-200/50 dark:bg-white/10 text-gray-700 dark:text-white transition-all hover:bg-gray-200 dark:hover:bg-white/20 hover:scale-110"
                             :aria-label="isDark ? 'Switch to light mode' : 'Switch to dark mode'"
                         >
                             <Sun v-if="isDark" class="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:rotate-180" />
                             <Moon v-else class="h-4 w-4 sm:h-5 sm:w-5 transition-transform group-hover:-rotate-12" />
                         </button>
                         
-                        <Link
-                            v-if="$page.props.auth.user"
-                            href="/dashboard"
-                            class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
-                        >
-                            <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <Crown class="relative mr-1.5 sm:mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                            <span class="relative">Dashboard</span>
-                        </Link>
-                        <template v-else>
+                        <!-- Desktop View - Show buttons directly -->
+                        <template v-if="$page.props.auth.user">
                             <Link
-                                href="/login"
-                                class="rounded-xl px-3 py-2 sm:px-5 sm:py-2.5 text-xs sm:text-sm font-medium text-white transition-all hover:bg-white/10 hover:scale-105"
-                            >
-                                Sign In
-                            </Link>
-                            <Link
-                                v-if="canRegister"
-                                href="/register"
+                                href="/dashboard"
                                 class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-4 py-2 sm:px-6 sm:py-3 text-xs sm:text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
                             >
                                 <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                                <span class="relative">Join Us</span>
-                                <ArrowRight class="relative ml-1.5 sm:ml-2 h-3.5 w-3.5 sm:h-4 sm:w-4 group-hover:translate-x-1 transition-transform" />
+                                <Crown class="relative mr-1.5 sm:mr-2 h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                                <span class="relative">Dashboard</span>
                             </Link>
+                        </template>
+                        <template v-else>
+                            <!-- Desktop: Show both buttons -->
+                            <div class="hidden sm:flex items-center space-x-3">
+                                <Link
+                                    href="/login"
+                                    class="rounded-xl px-5 py-2.5 text-sm font-medium text-gray-700 dark:text-white transition-all hover:bg-gray-100 dark:hover:bg-white/10 hover:scale-105"
+                                >
+                                    Sign In
+                                </Link>
+                                <Link
+                                    v-if="canRegister"
+                                    href="/register"
+                                    class="group relative inline-flex items-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 px-6 py-3 text-sm font-semibold text-white shadow-lg transition-all hover:shadow-2xl hover:scale-105"
+                                >
+                                    <div class="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
+                                    <span class="relative">Join Us</span>
+                                    <ArrowRight class="relative ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                                </Link>
+                            </div>
+                            
+                            <!-- Mobile: Show dropdown menu -->
+                            <div class="relative sm:hidden">
+                                <button
+                                    @click="showMobileMenu = !showMobileMenu"
+                                    class="flex h-8 w-8 items-center justify-center rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg transition-all hover:shadow-xl"
+                                    :aria-label="showMobileMenu ? 'Close menu' : 'Open menu'"
+                                >
+                                    <svg v-if="!showMobileMenu" class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                    </svg>
+                                    <svg v-else class="h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                                    </svg>
+                                </button>
+                                
+                                <!-- Dropdown Menu -->
+                                <div
+                                    v-show="showMobileMenu"
+                                    class="absolute right-0 mt-2 w-48 rounded-xl bg-white dark:bg-gray-800 shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden z-50"
+                                >
+                                    <Link
+                                        href="/login"
+                                        class="block px-4 py-3 text-sm font-medium text-gray-700 dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
+                                        @click="showMobileMenu = false"
+                                    >
+                                        <div class="flex items-center">
+                                            <svg class="h-5 w-5 mr-3 text-gray-500 dark:text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                                            </svg>
+                                            Sign In
+                                        </div>
+                                    </Link>
+                                    <Link
+                                        v-if="canRegister"
+                                        href="/register"
+                                        class="block px-4 py-3 text-sm font-medium text-white bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 transition-colors"
+                                        @click="showMobileMenu = false"
+                                    >
+                                        <div class="flex items-center justify-between">
+                                            <span>Join Us</span>
+                                            <ArrowRight class="h-4 w-4" />
+                                        </div>
+                                    </Link>
+                                </div>
+                            </div>
                         </template>
                     </div>
                 </div>
@@ -239,22 +291,21 @@ const testimonials = [
         </nav>
 
         <!-- Hero Section -->
-        <div class="relative z-10 overflow-hidden py-12 sm:py-20 lg:py-32">
+        <div class="relative z-10 overflow-hidden min-h-[100dvh] flex flex-col justify-center py-12 sm:py-20 lg:py-32">
             <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div class="mx-auto max-w-4xl text-center">
-                    <!-- Animated Badge -->
-                    <div class="mb-6 sm:mb-8 flex justify-center animate-fade-in">
-                        <div class="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/20 px-3 py-1.5 sm:px-4 sm:py-2 backdrop-blur-sm">
-                            <Sparkles class="h-3.5 w-3.5 sm:h-4 sm:w-4 text-blue-400" />
-                            <span class="text-xs sm:text-sm font-semibold text-white">Trusted by 1,200+ Churches Worldwide</span>
-                        </div>
-                    </div>
+
                     
                     <!-- Main Heading -->
-                    <h1 class="mb-6 sm:mb-8 text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-white animate-fade-in-up">
+                    <h1 class="mb-6 sm:mb-8 text-4xl sm:text-5xl lg:text-7xl xl:text-8xl font-extrabold tracking-tight text-gray-900 dark:text-white animate-fade-in-up">
                         Transform Your
                         <span class="relative inline-block">
-                            <span class="bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent animate-gradient">
+                            <!-- Shadow layer for better visibility in light mode -->
+                            <span class="absolute inset-0 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent blur-sm opacity-40 dark:opacity-0 animate-gradient">
+                                Church Community
+                            </span>
+                            <!-- Main gradient text -->
+                            <span class="relative bg-gradient-to-r from-blue-700 via-purple-700 to-pink-700 dark:from-blue-400 dark:via-purple-400 dark:to-pink-400 bg-clip-text text-transparent animate-gradient">
                                 Church Community
                             </span>
                             <svg class="absolute -bottom-1 sm:-bottom-2 left-0 w-full" height="12" viewBox="0 0 300 12" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -270,39 +321,11 @@ const testimonials = [
                         </span>
                     </h1>
                     
-                    <p class="mb-8 sm:mb-12 text-lg sm:text-xl leading-relaxed text-gray-200 sm:text-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
-                        The all-in-one platform to <strong class="text-white">connect, engage, and grow</strong> your congregation with powerful tools designed for modern ministry.
+                    <p class="mb-8 sm:mb-12 text-lg sm:text-xl leading-relaxed text-gray-700 dark:text-gray-200 sm:text-2xl animate-fade-in-up" style="animation-delay: 0.2s;">
+                        The all-in-one platform to <strong class="text-gray-900 dark:text-white">connect, engage, and grow</strong> your congregation with powerful tools designed for modern ministry.
                     </p>
                     
-                    <!-- CTA Buttons -->
-                    <div class="flex flex-col items-center justify-center gap-3 sm:gap-4 sm:flex-row animate-fade-in-up w-full sm:w-auto" style="animation-delay: 0.4s;">
-                        <Link
-                            v-if="!$page.props.auth.user"
-                            href="/register"
-                            class="group relative inline-flex items-center justify-center w-full sm:w-auto rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
-                        >
-                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <span class="relative">Get Started</span>
-                            <ArrowRight class="relative ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                        <Link
-                            v-else
-                            href="/dashboard"
-                            class="group relative inline-flex items-center justify-center w-full sm:w-auto rounded-2xl bg-gradient-to-r from-blue-600 to-purple-600 px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white shadow-2xl transition-all hover:shadow-blue-500/50 hover:scale-105"
-                        >
-                            <div class="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-700 to-purple-700 opacity-0 group-hover:opacity-100 transition-opacity"></div>
-                            <Crown class="relative mr-2 h-5 w-5" />
-                            <span class="relative">Go to Dashboard</span>
-                        </Link>
-                        
-                        <Link
-                            href="/login"
-                            class="group inline-flex items-center justify-center w-full sm:w-auto rounded-2xl border-2 border-white/20 bg-white/10 backdrop-blur-sm px-8 py-4 sm:px-10 sm:py-5 text-base sm:text-lg font-bold text-white transition-all hover:bg-white/20 hover:scale-105 hover:shadow-xl"
-                        >
-                            Learn More
-                            <ArrowRight class="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-                        </Link>
-                    </div>
+
                 </div>
             </div>
         </div>

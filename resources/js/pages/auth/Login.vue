@@ -45,7 +45,7 @@ const showPassword = ref(false);
             <!-- Google Sign In Button -->
             <a
                 href="/auth/google"
-                class="flex items-center justify-center w-full bg-white text-gray-700 font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:bg-gray-50 mb-2"
+                class="flex items-center justify-center w-full bg-white dark:bg-white text-gray-700 font-semibold py-3 rounded-lg shadow-md hover:shadow-lg transition-all hover:bg-gray-50 mb-2"
             >
                 <img src="https://www.svgrepo.com/show/475656/google-color.svg" class="h-5 w-5 mr-3" alt="Google Logo" />
                 Sign in with Google
@@ -53,9 +53,9 @@ const showPassword = ref(false);
 
             <div class="relative flex items-center justify-center text-sm">
                 <div class="absolute inset-0 flex items-center">
-                    <span class="w-full border-t border-white/20"></span>
+                    <span class="w-full border-t border-gray-300 dark:border-white/20"></span>
                 </div>
-                <span class="relative bg-transparent px-2 text-white/50 uppercase">Or continue with</span>
+                <span class="relative bg-transparent px-2 text-gray-500 dark:text-white/50 uppercase">Or continue with</span>
             </div>
 
             <div class="grid gap-5">
@@ -69,9 +69,9 @@ const showPassword = ref(false);
                         :tabindex="1"
                         autocomplete="email"
                         placeholder="Enter your email"
-                        class="bg-transparent border-0 border-b-2 border-white/30 rounded-none px-0 py-3 text-white placeholder:text-white/50 focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+                        class="bg-transparent border-0 border-b-2 border-gray-300 dark:border-white/30 rounded-none px-0 py-3 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:border-blue-600 dark:focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors"
                     />
-                    <InputError :message="errors.email" class="text-red-400" />
+                    <InputError :message="errors.email" class="text-red-500 dark:text-red-400" />
                 </div>
 
                 <div class="grid gap-2">
@@ -84,30 +84,30 @@ const showPassword = ref(false);
                             :tabindex="2"
                             autocomplete="current-password"
                             placeholder="Enter your password"
-                            class="bg-transparent border-0 border-b-2 border-white/30 rounded-none px-0 py-3 pr-10 text-white placeholder:text-white/50 focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0"
+                            class="bg-transparent border-0 border-b-2 border-gray-300 dark:border-white/30 rounded-none px-0 py-3 pr-10 text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-white/50 focus:border-blue-600 dark:focus:border-white/60 focus-visible:ring-0 focus-visible:ring-offset-0 transition-colors"
                         />
                         <button
                             type="button"
                             @click="showPassword = !showPassword"
-                            class="absolute right-0 top-1/2 -translate-y-1/2 text-white/50 hover:text-white/80 transition-colors"
+                            class="absolute right-0 top-1/2 -translate-y-1/2 text-gray-400 dark:text-white/50 hover:text-gray-600 dark:hover:text-white/80 transition-colors"
                             :aria-label="showPassword ? 'Hide password' : 'Show password'"
                         >
                             <Eye v-if="!showPassword" class="h-5 w-5" />
                             <EyeOff v-else class="h-5 w-5" />
                         </button>
                     </div>
-                    <InputError :message="errors.password" class="text-red-400" />
+                    <InputError :message="errors.password" class="text-red-500 dark:text-red-400" />
                 </div>
 
                 <div class="flex items-center justify-between text-sm">
-                    <Label for="remember" class="flex items-center space-x-2 text-white/70 cursor-pointer">
-                        <Checkbox id="remember" name="remember" :tabindex="3" class="border-white/30 data-[state=checked]:bg-white data-[state=checked]:text-slate-900" />
+                    <Label for="remember" class="flex items-center space-x-2 text-gray-600 dark:text-white/70 cursor-pointer">
+                        <Checkbox id="remember" name="remember" :tabindex="3" class="border-gray-300 dark:border-white/30 data-[state=checked]:bg-blue-600 dark:data-[state=checked]:bg-white data-[state=checked]:text-white dark:data-[state=checked]:text-slate-900" />
                         <span>Remember me</span>
                     </Label>
                     <TextLink
                         v-if="canResetPassword"
                         :href="request()"
-                        class="text-white/70 hover:text-white transition-colors"
+                        class="text-blue-600 dark:text-white/70 hover:text-blue-700 dark:hover:text-white transition-colors"
                         :tabindex="5"
                     >
                         Forgot password?
@@ -116,7 +116,7 @@ const showPassword = ref(false);
 
                 <Button
                     type="submit"
-                    class="mt-2 w-full bg-white hover:bg-white/90 text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
+                    class="mt-2 w-full bg-blue-600 dark:bg-white hover:bg-blue-700 dark:hover:bg-white/90 text-white dark:text-slate-900 font-semibold py-3 rounded-lg shadow-lg hover:shadow-xl transition-all"
                     :tabindex="4"
                     :disabled="processing"
                     data-test="login-button"
@@ -130,11 +130,11 @@ const showPassword = ref(false);
             </div>
 
             <div
-                class="text-center text-sm text-white/70"
+                class="text-center text-sm text-gray-600 dark:text-white/70"
                 v-if="canRegister"
             >
                 Don't have an account? 
-                <TextLink :href="register()" :tabindex="5" class="text-white hover:text-white/80 transition-colors font-semibold">Register</TextLink>
+                <TextLink :href="register()" :tabindex="5" class="text-blue-600 dark:text-white hover:text-blue-700 dark:hover:text-white/80 transition-colors font-semibold">Register</TextLink>
             </div>
         </Form>
     </AuthBase>

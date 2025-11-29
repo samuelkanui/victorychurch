@@ -20,8 +20,6 @@ import {
     BookOpen,
     Calendar,
     User,
-    Github,
-    Folder,
     FileText
 } from 'lucide-vue-next';
 
@@ -63,18 +61,7 @@ const mainNavItems: NavItem[] = [
     },
 ];
 
-const footerNavItems: NavItem[] = [
-    {
-        title: 'Github Repo',
-        href: 'https://github.com/laravel/vue-starter-kit',
-        icon: Github,
-    },
-    {
-        title: 'Documentation',
-        href: 'https://laravel.com/docs/starter-kits#vue',
-        icon: Folder,
-    },
-];
+
 </script>
 
 <template>
@@ -108,7 +95,6 @@ const footerNavItems: NavItem[] = [
         </SidebarContent>
 
         <SidebarFooter class="bg-gradient-to-r from-green-50 to-green-100 dark:from-green-950 dark:to-green-900">
-            <MemberNavFooter :items="footerNavItems" />
             <NavUser />
         </SidebarFooter>
     </Sidebar>

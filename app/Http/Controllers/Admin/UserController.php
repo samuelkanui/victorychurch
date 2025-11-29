@@ -82,6 +82,7 @@ class UserController extends Controller
             'role' => $validated['role'],
             'email_verified_at' => null, // Require OTP verification on first login
             'is_active' => false, // Will be activated after OTP verification
+            'requires_password_change' => true, // Force password change after first login
         ]);
 
         // Send email with account credentials

@@ -7,13 +7,19 @@ import MemberLayout from '@/layouts/MemberLayout.vue';
 import SettingsLayout from '@/layouts/settings/Layout.vue';
 import { edit } from '@/routes/user-password';
 import { Form, Head, usePage } from '@inertiajs/vue3';
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 
 import HeadingSmall from '@/components/HeadingSmall.vue';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
+import { AlertCircle } from 'lucide-vue-next';
 import { type BreadcrumbItem } from '@/types';
+
+defineProps<{
+    mustChangePassword?: boolean;
+}>();
 
 const breadcrumbItems: BreadcrumbItem[] = [
     {
@@ -45,6 +51,15 @@ const RoleLayout = computed(() => {
                     title="Update password"
                     description="Ensure your account is using a long, random password to stay secure"
                 />
+
+                <!-- Alert for required password change -->
+                <Alert v-if="mustChangePassword" variant="destructive" class="border-orange-500 bg-orange-50 dark:bg-orange-950">
+                    <AlertCircle class="h-4 w-4 text-orange-600 dark:text-orange-400" />
+                    <AlertTitle class="text-orange-800 dark:text-orange-200">Password Change Required</AlertTitle>
+                    <AlertDescription class="text-orange-700 dark:text-orange-300">
+                        Your account was created by an administrator. For security reasons, you must change your password before accessing the dashboard.
+                    </AlertDescription>
+                </Alert>
 
                 <Form
                     v-bind="PasswordController.update.form()"

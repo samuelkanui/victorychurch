@@ -13,16 +13,18 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Create Admin User
-        User::create([
-            'name' => 'System Administrator',
-            'email' => 'lintasan2098@gmail.com',
-            'password' => Hash::make('password'),
-            'role' => 'admin',
-            'email_verified_at' => now(),
-            'is_active' => true,
-            'last_login_at' => now(),
-        ]);
+        // Create Admin User if they do not already exist
+        User::firstOrCreate(
+            ['email' => 'lintasan2098@gmail.com'],
+            [
+                'name' => 'System Administrator',
+                'password' => Hash::make('password'),
+                'role' => 'admin',
+                'email_verified_at' => now(),
+                'is_active' => true,
+                'last_login_at' => now(),
+            ]
+        );
 
         $this->command->info('Database seeded successfully!');
         $this->command->info('✅ Created: 1 admin user');

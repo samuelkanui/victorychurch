@@ -40,7 +40,13 @@ class LoginResponse implements LoginResponseContract
                 ->with('status', 'Please verify your email. A verification code has been sent to your email.');
         }
 
-        // User is active, proceed to dashboard
-        return redirect()->intended(route('dashboard'));
+        // User is active, redirect directly based on their role
+        $redirectTo = match(true) {
+            $user->isAdmin()  => route('admin.dashboard'),
+            $user->isLeader() => route('leader.dashboard'),
+            default           => route('member.dashboard'),
+        };
+
+        return redirect()->intended($redirectTo);
     }
 }

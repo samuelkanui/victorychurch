@@ -494,7 +494,7 @@ const testimonials = [
                 <!-- Bottom Bar -->
                 <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
                     <p class="text-sm text-gray-400">
-                        &copy; 2025 Victory Fellowship Church Management. All rights reserved.
+                        &copy; {{ new Date().getFullYear() }} Victory Fellowship Church Management. All rights reserved.
                     </p>
                     <div class="flex items-center gap-6 text-sm text-gray-400">
                         <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>

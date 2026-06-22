@@ -85,7 +85,7 @@ onUnmounted(() => {
 
                 <!-- Footer Text -->
                 <p class="mt-6 text-center text-sm text-gray-600 dark:text-gray-400">
-                    © 2025 Victory Fellowship. All rights reserved.
+                    © {{ new Date().getFullYear() }} Victory Fellowship. All rights reserved.
                 </p>
             </div>
         </div>
